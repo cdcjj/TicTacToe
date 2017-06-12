@@ -1,6 +1,6 @@
 module.exports = {
   buildGrid: function() {
-  	let grid = [];
+  	var grid = [];
     for (var i = 0; i < 3; i++) {
     	grid.push([]);
     	for (var j = 0; j < 3; j++) {
@@ -14,5 +14,6 @@ module.exports = {
       grid[i] = grid[i].join(' | ');
     }
     return grid.join('\n---------\n');
-  }
+  },
+  
 }
