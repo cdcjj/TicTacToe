@@ -1,0 +1,19 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "command line application of tic-tac-toe",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdcjj/TicTacToe.git"
+  },
+  "author": "Doris Chiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdcjj/TicTacToe/issues"
+  },
+  "homepage": "https://github.com/cdcjj/TicTacToe#readme"
+}

@@ -64,7 +64,7 @@ module.exports = {
   checkDiagonal: function(playerChip, grid) {
     var i = 1;
     var j = 1;
-    
+
     // check if player able to make diagonal
     if (grid[i][j] === playerChip) {
       // check major diagonal
