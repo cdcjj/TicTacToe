@@ -60,5 +60,21 @@ module.exports = {
       return false;
     }
     return false;
-  };
+  },
+  checkDiagonal: function(playerChip, grid) {
+    var i = 1;
+    var j = 1;
+    
+    // check if player able to make diagonal
+    if (grid[i][j] === playerChip) {
+      // check major diagonal
+      if (grid[i-1][j-1] === playerChip && grid[i+1][j+1] === playerChip) {
+        return true;
+      // check minor diagonal
+      } else if (grid[i+1][j-1] === playerChip && grid[i-1][j+2] === playerChip) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
