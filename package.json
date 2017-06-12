@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cdcjj/TicTacToe/issues"
   },
-  "homepage": "https://github.com/cdcjj/TicTacToe#readme"
+  "homepage": "https://github.com/cdcjj/TicTacToe#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
 }

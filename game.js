@@ -1,14 +1,20 @@
+var readline = require('readline');
 var helpers = require('./helpers.js');
 
-function Game(player1, player2) {
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function Game() {
   // initialize grid:
   this.grid = helpers.buildGrid();
   this.player1 = {
-    name: player1,
+    name: '',
     chip: 'X',
   };
   this.player2 = {
-    name: player2,
+    name: '',
     chip: 'O',
   }
 }
@@ -23,5 +29,21 @@ Game.prototype = {
     }
     return false;
   },
-  
+  startGame: function(player1, player2) {
+    this.player1.name = player1;
+    this.player2.name = player2;
+    console.log(`${player1} is Player 1 with chip 'X' \n ${player2} is Player 2 with chip 'O'`);
+  }
 }
+
+Game();
+rl.question('Please input the name of Player 1', (response) => {
+  var player1 = response;
+  console.log('player 1 is: ', reponse);
+  rl.close();
+});
+rl.question('Please input the name of Player 2', (answer) => {
+  var player2 = answer;
+  console.log('player 2 is: ', answer);
+  rl.close();
+});
