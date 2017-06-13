@@ -4,8 +4,11 @@ Command-line implementation of Tic-Tac-Toe
 
 #### To Start
 
-- $ git clone https://github.com/cdcjj/TicTacToe  
-- $ cd TicTacToe  
-- $ node game.js player1 player2  
+- Clone down the repository  
+  - `$ git clone https://github.com/cdcjj/TicTacToe`  
+- cd into the folder  
+  - `$ cd TicTacToe`  
+- Open the file and include player names in the same command  
+  - `$ node game.js player1 player2`  
   - (replace player1 and player2 with player names)  
 - Play the game!  
