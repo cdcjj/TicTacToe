@@ -10,12 +10,14 @@ module.exports = {
     return grid;
   },
   printGrid: function(grid) {
-    grid.unshift(['    1   2   3']);
+    var print = grid.slice();
+    print.unshift(['    1   2   3']);
     for (var i = 1; i < 4; i++) {
-    	grid[i].unshift(i);
-      grid[i] = grid[i].join(' | ');
+      print[i] = grid[i-1].slice();
+    	print[i].unshift(i);
+      print[i] = print[i].join(' | ');
     }
-    return grid.join('\n--------------\n');
+    console.log(print.join('\n--------------\n'));
   },
   checkVertical: function(i, j, playerChip, grid) {
     // top piece
@@ -76,5 +78,8 @@ module.exports = {
       }
     }
     return false;
-  }
+  },
+  alternateTurns: function(currentPlayer, grid) {
+
+  },
 }

@@ -1,10 +1,5 @@
-var readline = require('readline');
+var prompt = require('prompt');
 var helpers = require('./helpers.js');
-
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
 function Game() {
   // initialize grid:
@@ -16,7 +11,10 @@ function Game() {
   this.player2 = {
     name: '',
     chip: 'O',
-  }
+  };
+  this.currentPlayer = this.player1;
+  this.placed = 0;
+  this.win = false;
 }
 
 Game.prototype = {
@@ -33,17 +31,44 @@ Game.prototype = {
     this.player1.name = player1;
     this.player2.name = player2;
     console.log(`${player1} is Player 1 with chip 'X' \n ${player2} is Player 2 with chip 'O'`);
-  }
+    helpers.printGrid(this.grid);
+    this.playerTurn();
+  },
+  playerTurn: function() {
+    console.log(`Current Player: ${this.currentPlayer.name}`);
+    prompt.get(['row', 'column'], (err, result) => {
+      var row = result.row - 1;
+      var column = result.column - 1;
+      if (this.grid[row][column] !== ' ') {
+        console.log('Spot has been taken, please select another spot');
+        this.playerTurn();
+        return;
+      } else {
+        this.grid[row][column] = this.currentPlayer.chip;
+      }
+      this.placed++;
+      helpers.printGrid(this.grid);
+      var won = this.checkWin(row, column, this.currentPlayer);
+      if (won) {
+        console.log(`${this.currentPlayer.name} has won! Congratulations!`);
+        return;
+      } else if (this.placed === 9 && !this.win) {
+        console.log('End of game, tied score');
+        return;
+      }
+      if (this.placed !== 9 || !this.win) {
+        if (this.currentPlayer.chip === 'X') {
+          this.currentPlayer = this.player2;
+        } else {
+          this.currentPlayer = this.player1;
+        }
+        this.playerTurn();
+      }
+    });
+  },
 }
 
-Game();
-rl.question('Please input the name of Player 1', (response) => {
-  var player1 = response;
-  console.log('player 1 is: ', reponse);
-  rl.close();
-});
-rl.question('Please input the name of Player 2', (answer) => {
-  var player2 = answer;
-  console.log('player 2 is: ', answer);
-  rl.close();
-});
+var game = new Game();
+var player2 = process.argv.pop();
+var player1 = process.argv.pop();
+game.startGame(player1, player2);

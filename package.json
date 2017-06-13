@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/cdcjj/TicTacToe#readme",
   "dependencies": {
-    "commander": "^2.9.0"
+    "prompt": "^1.0.0"
   }
 }
