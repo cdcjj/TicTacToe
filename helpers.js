@@ -79,7 +79,4 @@ module.exports = {
     }
     return false;
   },
-  alternateTurns: function(currentPlayer, grid) {
-
-  },
 }
